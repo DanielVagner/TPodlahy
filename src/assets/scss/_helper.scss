@@ -75,11 +75,13 @@
 }
 
 #back-to-top {
-  width: 30px;
-  height: 30px;
+  justify-content: center;
+  display: flex;
+  width: 40px;
+  height: 40px;
   position: fixed;
   bottom: 20px;
-  right: 30px;
+  right: 5px;
   background: $gray-800; // Předpokládá se použití SCSS proměnné
   border-color: transparent;
   border-radius: 50%;  // Změněno pro perfektní kruh
@@ -93,8 +95,13 @@
     background-color: $primary; // Předpokládá se použití SCSS proměnné
   }
   i.mdi {
-    font-size: 15px; // Upraveno pro větší kontrolu velikosti
+    font-size: 20px; // Upraveno pro větší kontrolu velikosti
   }
+}
+
+#back-to-top i.mdi {
+  margin: 0; /* Odstraní všechny vnější okraje */
+  padding: 0; /* Odstraní všechna vnitřní odsazení */
 }
 
 
