@@ -74,27 +74,29 @@
   bottom: 0;
 }
 
-//BACK TO TOP
 #back-to-top {
   width: 30px;
   height: 30px;
   position: fixed;
   bottom: 20px;
   right: 30px;
-  background: $gray-800;
+  background: $gray-800; // Předpokládá se použití SCSS proměnné
   border-color: transparent;
-  border-radius: 40px;
-  color: $white;
+  border-radius: 50%;  // Změněno pro perfektní kruh
+  color: $white; // Předpokládá se použití SCSS proměnné
   transition: all 0.5s ease;
-  display: none;
+  display: flex;  // Flexbox pro centrování
+  justify-content: center; // Horizontální centrování
+  align-items: center; // Vertikální centrování
   &:hover {
     border-radius: 5px;
-    background-color: $primary;
+    background-color: $primary; // Předpokládá se použití SCSS proměnné
   }
-  i.mdi{
-    font-size: 15px!important;
+  i.mdi {
+    font-size: 15px; // Upraveno pro větší kontrolu velikosti
   }
 }
+
 
 /*******link color*******/
 .primary-link {
