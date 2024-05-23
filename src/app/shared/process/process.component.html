@@ -118,19 +118,19 @@
 <!-- START CTA -->
 <section
   class="bg-cta"
-  style="background-image: url(assets/images/test-img.jpg)"
+  style="background-image: url(assets/images/products/parkety.jpeg)"
 >
   <div class="bg-overlay"></div>
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-6">
         <div class="text-center text-white">
-          <h3 class="mb-3">PŘEDSTAVENÍ</h3>
-          <p>Přehrajte si krátké video ať vidíte jak pracujeme.</p>
+          <h3 class="mb-3">Objevte, co nás dělá jedinečnými.</h3>
+          <p> Ve videu níže vám představujeme náš tým, prohlédnete si naše pracovní prostředí a dozvíte se více o našich projektech a způsobu práce. Zjistěte, proč jsme správnou volbou pro vaše potřeby.</p>
           <a
             href="javascript:void(0)"
             class="play-btn mt-4"
-            (click)="presentationVideo.show()"
+            (click)="presentationVideo.show(); playVideo()"
           >
             <i class="mdi mdi-play text-white"></i>
           </a>
@@ -159,12 +159,12 @@
           <button
             type="button"
             class="btn-close btn-close-white"
-            (click)="presentationVideo.hide()"
+            (click)="presentationVideo.hide(); stopVideo()"
             aria-label="Close"
           ></button>
         </div>
         <div class="ratio ratio-16x9">
-          <video id="VisaChipCardVideo" class="video-box" controls>
+          <video #videoPlayer id="VisaChipCardVideo" class="video-box" controls>
             <source src="assets/video/ptpodlahy.mp4" type="video/mp4" />
           </video>
         </div>
