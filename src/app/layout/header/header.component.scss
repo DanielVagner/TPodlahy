@@ -19,11 +19,70 @@
     font-weight: bold; /* Tučné písmo pro text */
   }
 
-  .rotate-to-cross {
-    animation: rotateToCross 0.5s forwards;
+  .navbar-default .navbar-toggle:focus,
+  .navbar-default .navbar-toggle:hover {
+      background-color: transparent;
   }
   
-  .rotate-to-hamburger {
-    animation: rotateToHamburger 0.5s forwards;
+  .navbar-default .navbar-toggle {
+      border: none;
   }
+  
+  .icon-bar {
+      transition: all 0.15s;
+      display: block; /* Ujistěte se, že se spany chovají jako blokové elementy */
+      width: 28px; /* Šířka ikony */
+      height: 3px; /* Výška jednoho pruhu ikony */
+      background-color: #333; /* Barva pruhů */
+      margin: 6px 0; /* Rozestupy mezi pruhy */
+  }
+  
+  .top-bar {
+      transform-origin: 10% 10%;
+  }
+  
+  .bottom-bar {
+      transform-origin: 10% 90%;
+  }
+  
+
+
+  .navbar-toggler {
+    border: none;
+    background-color: transparent;
+  }
+  
+  .navbar-toggler span.icon-bar {
+    display: block;
+    width: 30px;
+    height: 3px;
+    background-color: #000;
+    margin: 6px 0;
+    transition: all 0.3s;
+  }
+  
+  .navbar-toggler:not(.collapsed) .top-bar {
+    transform: rotate(45deg);
+    transform-origin: 10% 10%;
+  }
+  
+  .navbar-toggler:not(.collapsed) .middle-bar {
+    opacity: 0;
+  }
+  
+  .navbar-toggler:not(.collapsed) .bottom-bar {
+    transform: rotate(-45deg);
+    transform-origin: 6% 90%;
+  }
+  
+  .navbar-toggler.collapsed .top-bar,
+  .navbar-toggler.collapsed .bottom-bar {
+    transform: rotate(0);
+  }
+  
+  .navbar-toggler.collapsed .middle-bar {
+    opacity: 1;
+  }
+  
+  
   

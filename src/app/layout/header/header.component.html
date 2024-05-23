@@ -1,66 +1,110 @@
- 
 <!--start page Loader -->
 <div id="preloader">
-    <div id="status">
-        <div class="load">
-            <hr />
-            <hr />
-            <hr />
-            <hr />
-        </div>
+  <div id="status">
+    <div class="load">
+      <hr />
+      <hr />
+      <hr />
+      <hr />
     </div>
+  </div>
 </div>
 <!--end page Loader -->
- 
- <!-- START NAVBAR -->
- <nav  id="navbar" class="navbar navbar-expand-lg fixed-top sticky" (window:scroll)="windoscroll()">
-    <div class="container" appScrollspy [spiedTags]="['section']" (sectionChange)="onSectionChange($event)">
-        <nav class="navbar">
-            <div class="navbar-brand">
-              <a href="/">
-                <img src="assets/images/logo.jpeg" alt="" height="60">
-                <span>Podlahy</span>
-              </a>
-            </div>
-          </nav>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-          aria-expanded="false" (click)="toggleMenu()" aria-label="Toggle navigation">
-    <i [ngClass]="{
-        'mdi-menu': !isMenuOpen,
-        'mdi-close': isMenuOpen,
-        'icon-animate': true,
-        'rotate-to-cross': isMenuOpen,
-        'rotate-to-hamburger': !isMenuOpen
-      }" class="mdi text-muted"></i>
-  </button>
-        <div class="collapse navbar-collapse" scrollSpy id="navbarSupportedContent">
-            <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="navbar-navList">
-                <li class="nav-item">
-                    <a [ngxScrollTo]="'#home'" class="nav-link" [ngClass]="{'active':curentsection === 'home'}" href="javascript:void(0);">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a [ngxScrollTo]="'#features'" class="nav-link" [ngClass]="{'active':curentsection === 'features'}" href="javascript:void(0);">O nás</a>
-                </li>
-                <li class="nav-item">
-                    <a [ngxScrollTo]="'#client'" class="nav-link" [ngClass]="{'active':curentsection === 'client'}" href="javascript:void(0);">Klienti</a>
-                </li>
-                <li class="nav-item">
-                    <a [ngxScrollTo]="'#price'" class="nav-link" [ngClass]="{'active':curentsection === 'price'}" href="javascript:void(0);">Cena</a>
-                </li>
-                <li class="nav-item">
-                    <a [ngxScrollTo]="'#contact'" class="nav-link" [ngClass]="{'active':curentsection === 'contact'}" href="javascript:void(0);">Kontakt</a>
-                </li>
-            </ul>
-            <!--end navbar-nav-->
-            <ul class="list-inline mb-0 ps-lg-4 ms-2">
-                <li class="list-inline-item">
-                    <a href="https://www.facebook.com/PTpodlahy" class="primary-link"><i class="mdi mdi-facebook me-1"></i></a>
-                </li>
-            </ul>
-        </div>
-        <!--end collapse-->
+
+<!-- START NAVBAR -->
+<nav
+  id="navbar"
+  class="navbar navbar-expand-lg fixed-top sticky"
+  (window:scroll)="windoscroll()"
+>
+  <div
+    class="container"
+    appScrollspy
+    [spiedTags]="['section']"
+    (sectionChange)="onSectionChange($event)"
+  >
+    <nav class="navbar">
+      <div class="navbar-brand">
+        <a href="/">
+          <img src="assets/images/logo.jpeg" alt="" height="60" />
+          <span>Podlahy</span>
+        </a>
+      </div>
+    </nav>
+    <button
+      class="navbar-toggler"
+      [class.collapsed]="!isMenuOpen"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      (click)="toggleMenu()"
+      aria-label="Toggle navigation"
+    >
+      <span class="icon-bar top-bar"></span>
+      <span class="icon-bar middle-bar"></span>
+      <span class="icon-bar bottom-bar"></span>
+    </button>
+    <div class="collapse navbar-collapse" scrollSpy id="navbarSupportedContent">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="navbar-navList">
+        <li class="nav-item">
+          <a
+            [ngxScrollTo]="'#home'"
+            class="nav-link"
+            [ngClass]="{ active: curentsection === 'home' }"
+            href="javascript:void(0);"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            [ngxScrollTo]="'#features'"
+            class="nav-link"
+            [ngClass]="{ active: curentsection === 'features' }"
+            href="javascript:void(0);"
+            >O nás</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            [ngxScrollTo]="'#client'"
+            class="nav-link"
+            [ngClass]="{ active: curentsection === 'client' }"
+            href="javascript:void(0);"
+            >Klienti</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            [ngxScrollTo]="'#price'"
+            class="nav-link"
+            [ngClass]="{ active: curentsection === 'price' }"
+            href="javascript:void(0);"
+            >Cena</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            [ngxScrollTo]="'#contact'"
+            class="nav-link"
+            [ngClass]="{ active: curentsection === 'contact' }"
+            href="javascript:void(0);"
+            >Kontakt</a
+          >
+        </li>
+      </ul>
+      <!--end navbar-nav-->
+      <ul class="list-inline mb-0 ps-lg-4 ms-2">
+        <li class="list-inline-item">
+          <a href="https://www.facebook.com/PTpodlahy" class="primary-link"
+            ><i class="mdi mdi-facebook me-1"></i
+          ></a>
+        </li>
+      </ul>
     </div>
-    <!--end container-->
+    <!--end collapse-->
+  </div>
+  <!--end container-->
 </nav>
 <!-- END NAVBAR -->
