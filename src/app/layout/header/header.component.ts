@@ -6,6 +6,7 @@ import { Component, Renderer2 } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent {
+  isMenuOpen = false;
 
   constructor(private renderer: Renderer2) { }
 
@@ -38,9 +39,12 @@ export class HeaderComponent {
     }
   }
 
+
+
   //togglemenu
   toggleMenu() {
     document.getElementById('navbarSupportedContent')!.classList.toggle('show')
+    this.isMenuOpen = !this.isMenuOpen;
   }
 
 

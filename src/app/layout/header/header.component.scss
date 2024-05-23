@@ -18,4 +18,12 @@
   span {
     font-weight: bold; /* Tučné písmo pro text */
   }
+
+  .rotate-to-cross {
+    animation: rotateToCross 0.5s forwards;
+  }
+  
+  .rotate-to-hamburger {
+    animation: rotateToHamburger 0.5s forwards;
+  }
   

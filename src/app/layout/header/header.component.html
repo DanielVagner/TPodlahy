@@ -23,10 +23,17 @@
               </a>
             </div>
           </nav>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" (click)="toggleMenu()" aria-label="Toggle navigation">
-            <i class="mdi mdi-menu text-muted"></i>
-        </button>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+          aria-expanded="false" (click)="toggleMenu()" aria-label="Toggle navigation">
+    <i [ngClass]="{
+        'mdi-menu': !isMenuOpen,
+        'mdi-close': isMenuOpen,
+        'icon-animate': true,
+        'rotate-to-cross': isMenuOpen,
+        'rotate-to-hamburger': !isMenuOpen
+      }" class="mdi text-muted"></i>
+  </button>
         <div class="collapse navbar-collapse" scrollSpy id="navbarSupportedContent">
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="navbar-navList">
                 <li class="nav-item">
