@@ -1,0 +1,21 @@
+.navbar {
+    display: flex;
+    align-items: center; /* Zarovnání prvků ve středu */
+    background-color: #f8f9fa; /* Příklad barvy pozadí */
+  }
+  
+  .navbar-brand a {
+    display: flex;
+    align-items: center; /* Zarovná obsah odkazu ve středu vertikálně */
+    text-decoration: none; /* Odebere podtržení odkazu */
+    color: black; /* Barva textu */
+  }
+  
+  .navbar-brand img {
+    margin-right: 10px; /* Odstup mezi obrázkem a textem */
+  }
+  
+  span {
+    font-weight: bold; /* Tučné písmo pro text */
+  }
+  
