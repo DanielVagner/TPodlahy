@@ -83,6 +83,21 @@
   .navbar-toggler.collapsed .middle-bar {
     opacity: 1;
   }
+ 
+  .show {
+    transform: translateY(-100%);
+    animation: showSlideIn 1s forwards;
+  }
   
+  @keyframes showSlideIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-100%);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
   
   

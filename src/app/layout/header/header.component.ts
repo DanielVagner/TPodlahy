@@ -43,7 +43,7 @@ export class HeaderComponent {
 
   //togglemenu
   toggleMenu() {
-    document.getElementById('navbarSupportedContent')!.classList.toggle('show')
+    document.getElementById('navbarSupportedContent')!.classList.toggle('show');
     this.isMenuOpen = !this.isMenuOpen;
   }
 
