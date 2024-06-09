@@ -1,8 +1,18 @@
-<div class="gallery">
-  @for (photo of photos ; track photo) {
+<div>
+  <div class="gallery">
+    @for (photo of photos ; track photo) {
 
-  <div class="gallery-item">
-    <img [src]="photo" alt="Gallery Photo" />
+    <div class="gallery-item">
+      <img [src]="photo" alt="Gallery Photo" (click)="showImage(photo)" />
+    </div>
+    }
   </div>
-  }
+
+  <div class="overlay" [class.show]="selectedPhoto" (click)="hideImage()">
+    <img
+      [src]="selectedPhoto"
+      class="full-image"
+      [class.show]="selectedPhoto"
+    />
+  </div>
 </div>

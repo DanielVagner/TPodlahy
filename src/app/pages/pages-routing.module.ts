@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 
 //Component
 import { IndexComponent } from './index/index.component';
+import { GaleryComponent } from './galery/galery.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path:'index1',
     component:IndexComponent
+  },
+  {
+    path:'galery',
+    component:GaleryComponent
   },
 ];
 

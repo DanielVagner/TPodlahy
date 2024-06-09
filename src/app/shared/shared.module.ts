@@ -21,7 +21,6 @@ import { AboutComponent } from './about/about.component';
 import { CtaComponent } from './cta/cta.component';
 import { BlogComponent } from './blog/blog.component';
 import { ContactComponent } from './contact/contact.component';
-import { GalleryComponent } from '../pages/galery/galery.component';
 
 
 
@@ -35,8 +34,7 @@ import { GalleryComponent } from '../pages/galery/galery.component';
     AboutComponent,
     CtaComponent,
     BlogComponent,
-    ContactComponent,
-    GalleryComponent
+    ContactComponent
 
   ],
   imports: [
@@ -45,7 +43,7 @@ import { GalleryComponent } from '../pages/galery/galery.component';
     SlickCarouselModule,
     CountUpModule,
     FormsModule, 
-    ReactiveFormsModule
+    ReactiveFormsModule, 
   ],
   exports:[
     FeaturesComponent,
@@ -56,8 +54,7 @@ import { GalleryComponent } from '../pages/galery/galery.component';
     AboutComponent,
     CtaComponent,
     BlogComponent,
-    ContactComponent,
-    GalleryComponent
+    ContactComponent
   ]
 
 })

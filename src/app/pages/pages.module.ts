@@ -14,6 +14,7 @@ import { SharedModule } from '../shared/shared.module';
 import { IndexComponent } from './index/index.component';
 import { BloglistComponent } from './bloglist/bloglist.component';
 import { BlogdetailsComponent } from './blogdetails/blogdetails.component';
+import { GaleryComponent } from '../pages/galery/galery.component';
 
 
 
@@ -21,7 +22,8 @@ import { BlogdetailsComponent } from './blogdetails/blogdetails.component';
   declarations: [
     IndexComponent,
     BloglistComponent,
-    BlogdetailsComponent
+    BlogdetailsComponent,
+    GaleryComponent,
   ],
   imports: [
     CommonModule,
