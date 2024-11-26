@@ -27,7 +27,6 @@ export class ProcessComponent {
     }
 
   stopVideo(){
-    console.log('stop video');
     this.shouldAutoplay = false;
     this.setAutoplayBasedOnCondition(false);
     this.cd.detectChanges();

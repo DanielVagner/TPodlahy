@@ -56,7 +56,6 @@ export class ContactComponent {
 
   sendEmail() {
     if (this.contactForm.valid) {
-      console.log(this.contactForm.value);
       const { name, email, subject, comments } = this.contactForm.value;
       const mailtoLink = `mailto:pttom@seznam.cz?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${comments}`)}`;
       window.location.href = mailtoLink;

@@ -9,10 +9,8 @@ export class GaleryComponent implements OnInit, OnDestroy {
   photos: string[] = [];
   selectedPhoto?: string;
 
-  constructor() {}
-
   ngOnInit(): void {
-    this.loadImages(16);
+    this.loadImages(8);
   }
 
 
@@ -25,8 +23,6 @@ export class GaleryComponent implements OnInit, OnDestroy {
   
       try {
         const response = await fetch(imageUrl, { method: 'HEAD' });
-        console.log(imageUrl)
-        console.log(response.url)
         if (response.ok && response.url === imageUrl) {
           this.photos.push(imageUrl);
         } else {
