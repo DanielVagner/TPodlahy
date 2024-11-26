@@ -15,6 +15,7 @@ import { IndexComponent } from './index/index.component';
 import { BloglistComponent } from './bloglist/bloglist.component';
 import { BlogdetailsComponent } from './blogdetails/blogdetails.component';
 import { GaleryComponent } from '../pages/galery/galery.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -23,13 +24,14 @@ import { GaleryComponent } from '../pages/galery/galery.component';
     IndexComponent,
     BloglistComponent,
     BlogdetailsComponent,
-    GaleryComponent,
+    GaleryComponent
   ],
   imports: [
     CommonModule,
     PagesRoutingModule,
     SharedModule,
-    SlickCarouselModule
-  ]
+    SlickCarouselModule,
+    HttpClientModule
+  ],
 })
 export class PagesModule { }
