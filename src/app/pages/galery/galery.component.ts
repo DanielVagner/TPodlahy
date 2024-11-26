@@ -1,5 +1,4 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-galery',
@@ -10,10 +9,10 @@ export class GaleryComponent implements OnInit, OnDestroy {
   photos: string[] = [];
   selectedPhoto?: string;
 
-  constructor(private http: HttpClient) {}
+  constructor() {}
 
   ngOnInit(): void {
-    this.loadImages(16);
+    this.loadImages(8);
   }
 
 
@@ -39,7 +38,6 @@ export class GaleryComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
       this.photos = [];
-      console.log(this.photos);
   }
 
 
@@ -49,9 +47,5 @@ export class GaleryComponent implements OnInit, OnDestroy {
 
   hideImage() {
     this.selectedPhoto = undefined;
-  }
-
-  trackPhoto(index: number, photo: string): any {
-    return photo; // Or the unique identifier of your photos
   }
 }

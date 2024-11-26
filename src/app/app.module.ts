@@ -10,16 +10,10 @@ import { inject } from "@vercel/analytics";
 
 // Component
 import { AppComponent } from './app.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent,
-    RegisterComponent,
-    ResetpasswordComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
