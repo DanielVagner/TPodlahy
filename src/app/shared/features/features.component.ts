@@ -11,6 +11,6 @@ export class FeaturesComponent {
 
 
   saveState(name: string): void {
-    localStorage.setItem('galeryUrl', name);
+    localStorage.setItem('galeryUrl', 'galery/' + name);
   }
 }

@@ -1,24 +1,30 @@
 .reviews-page {
-    max-width: 800px;
+    max-width: 60%;
     margin: 0 auto;
     padding: 20px;
-  }
   
-  .reviews {
-    margin-bottom: 30px;
-  }
-  
-  .review {
-    margin-bottom: 20px;
-  }
-  
-  .add-review {
-    textarea {
-      width: 100%;
-      height: 100px;
-      margin-bottom: 10px;
+    @media screen and (max-width: 768px) {
+      max-width: 95%;
+      padding: 10px;
     }
-  
+  }
+
+.reviews {
+  margin-bottom: 30px;
+}
+
+.review {
+  margin-bottom: 20px;
+}
+
+.add-review {
+  textarea {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 10px;
+  }
+
+  .add-review-action {
     button {
       background-color: #007bff;
       color: #fff;
@@ -26,9 +32,9 @@
       padding: 10px 20px;
       cursor: pointer;
     }
-  
+
     button:hover {
       background-color: #0056b3;
     }
   }
-  
+}
