@@ -1,5 +1,4 @@
 import { Component, Renderer2 } from '@angular/core';
-import { injectSpeedInsights } from '@vercel/speed-insights/*';
 
 
 @Component({
@@ -19,6 +18,5 @@ export class AppComponent {
     this.render.setAttribute(link,'rel','stylesheet') ;  // setAttribute() method is used to add attributes in HTML elements and SVG elements
     this.render.setAttribute(link,'href','assets/css/colors/default.css');
     this.render.appendChild(document.head,link)
-    injectSpeedInsights();
   }
 }
