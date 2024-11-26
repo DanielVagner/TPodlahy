@@ -1,0 +1,33 @@
+<div class="reviews-page">
+    <h1>Recenze na podlahy</h1>
+  
+    <div class="reviews">
+      <div class="review" *ngFor="let review of reviews">
+        <h3>{{ review.title }}</h3>
+        <blockquote>{{ review.text }}</blockquote>
+        <p><strong>Hodnocení:</strong> {{ review.rating }} ⭐</p>
+        <hr />
+      </div>
+    </div>
+  
+    <div class="add-review">
+      <h2>Přidejte svou recenzi</h2>
+      <textarea
+        [(ngModel)]="newReview.text"
+        placeholder="Vaše recenze"
+      ></textarea>
+      <br />
+      <label>
+        Hodnocení:
+        <input
+          type="number"
+          [(ngModel)]="newReview.rating"
+          min="1"
+          max="5"
+        />
+      </label>
+      <br />
+      <button (click)="addReview()">Odeslat recenzi</button>
+    </div>
+  </div>
+  

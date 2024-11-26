@@ -1,0 +1,20 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%; /* Nastavení plné výšky stránky */
+  }
+  
+  .app-layout {
+    display: flex;
+    flex-direction: column; /* Flexbox s vertikálním uspořádáním */
+    min-height: 100vh; /* Minimální výška stránky pokrývá celé okno */
+  }
+  
+  .content {
+    flex: 1; /* Zbytek prostoru zabírá hlavní obsah */
+  }
+  
+  app-footer {
+    margin-top: auto; /* Přilepí footer na dno stránky */
+  }
+  
