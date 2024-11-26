@@ -12,7 +12,7 @@ export class GaleryComponent implements OnInit, OnDestroy {
   constructor() {}
 
   ngOnInit(): void {
-    this.loadImages(8);
+    this.loadImages(16);
   }
 
 
@@ -21,11 +21,13 @@ export class GaleryComponent implements OnInit, OnDestroy {
     let foundImage = true;
   
     for (let i = 1; i <= count && foundImage; i++) {
-      const imageUrl = `assets/images/${name}/photo (${i}).jpg`;
+      const imageUrl = encodeURI(`${window.location.origin}/assets/images/${name}/photo (${i}).jpg`); 
   
       try {
         const response = await fetch(imageUrl, { method: 'HEAD' });
-        if (response.ok) {
+        console.log(imageUrl)
+        console.log(response.url)
+        if (response.ok && response.url === imageUrl) {
           this.photos.push(imageUrl);
         } else {
           foundImage = false;
