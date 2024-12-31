@@ -1,49 +1,49 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-galery',
   templateUrl: './galery.component.html',
-  styleUrls: ['./galery.component.scss']
+  styleUrls: ['./galery.component.scss'],
 })
 export class GaleryComponent implements OnInit, OnDestroy {
   photos: string[] = [];
   selectedPhoto?: string;
 
+  constructor(private http: HttpClient) {}
+
   ngOnInit(): void {
-    this.loadImages(8);
+    const folderName = localStorage.getItem('galeryUrl') || '';
+    this.loadImages(folderName);
   }
 
-
-  async loadImages(count: number): Promise<void> {
-    const name = localStorage.getItem('galeryUrl') || '';
-    let foundImage = true;
-  
-    for (let i = 1; i <= count && foundImage; i++) {
-      const imageUrl = encodeURI(`${window.location.origin}/assets/images/${name}/photo (${i}).jpg`); 
-  
-      try {
-        const response = await fetch(imageUrl, { method: 'HEAD' });
-        if (response.ok && response.url === imageUrl) {
-          this.photos.push(imageUrl);
-        } else {
-          foundImage = false;
-        }
-      } catch {
-        foundImage = false;
-      }
+  loadImages(folder: string): void {
+    if (!folder) {
+      console.error('Folder name is required');
+      return;
     }
+
+    const apiUrl = `https://localhost:7140/api/Gallery/images?folder=${encodeURIComponent(folder)}`;
+
+    this.http.get<string[]>(apiUrl).subscribe({
+      next: (imageUrls) => {
+        this.photos = imageUrls; // Přímo ukládáme URL z backendu
+      },
+      error: (err) => {
+        console.error('Error loading images', err);
+      },
+    });
   }
 
   ngOnDestroy(): void {
-      this.photos = [];
+    this.photos = [];
   }
 
-
-  showImage(photo: string) {
+  showImage(photo: string): void {
     this.selectedPhoto = photo;
   }
 
-  hideImage() {
+  hideImage(): void {
     this.selectedPhoto = undefined;
   }
 }

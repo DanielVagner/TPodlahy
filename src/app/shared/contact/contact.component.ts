@@ -1,64 +1,57 @@
 import { Component } from '@angular/core';
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-contact',
   templateUrl: './contact.component.html',
-  styleUrls: ['./contact.component.scss']
+  styleUrls: ['./contact.component.scss'],
 })
 export class ContactComponent {
+  contactForm: FormGroup;
+  formStatus: 'idle' | 'submitting' | 'success' | 'error' = 'idle'; // Stav formuláře
+  errorMessage: string | null = null;
 
-  contactForm!: UntypedFormGroup;
-  errormessage: any = " Please enter a name*";
-
-  constructor(private formBuilder: UntypedFormBuilder) { }
-
-  ngOnInit() {
-
-    this.contactForm = this.formBuilder.group({
-      name: ['', [Validators.required]],
-      email: ['', [Validators.required]],
-      subject: ['', [Validators.required]],
-      comments: ['', [Validators.required]]
+  constructor(private fb: FormBuilder, private http: HttpClient) {
+    this.contactForm = this.fb.group({
+      name: ['', Validators.required],
+      email: ['', [Validators.required, Validators.email]],
+      subject: [''],
+      comments: ['', Validators.required],
     });
-
-  }
-
-  ValidateFrom() {
-    var name = this.contactForm.get("name")!.value;
-    var email = this.contactForm.get("email")!.value;
-    var subject = this.contactForm.get("subject")!.value;
-    var comments = this.contactForm.get("comments")!.value;
-    if (name == "" || name == null) {
-      document.getElementById('error-msg')!.innerHTML = "<div class='alert alert-danger error_message'><i data-feather='home' class='icon-sm align-middle me-2'></i>*Please enter a name*</div>";
-      return false;
-    }
-    if (email == "" || email == null) {
-      document.getElementById('error-msg')!.innerHTML = "<div class='alert alert-danger error_message'><i data-feather='home' class='icon-sm align-middle me-2'></i>*Please enter a email*</div>";
-      return false;
-    }
-    if (subject == "" || subject == null) {
-      document.getElementById('error-msg')!.innerHTML = "<div class='alert alert-danger error_message'><i data-feather='home' class='icon-sm align-middle me-2'></i>*Please enter a subject*</div>";
-      return false;
-    }
-    if (comments == "" || comments == null) {
-      document.getElementById('error-msg')!.innerHTML = "<div class='alert alert-danger error_message'><i data-feather='home' class='icon-sm align-middle me-2'></i>*Please enter a comments*</div>";
-      return false;
-    }
-    return true
-  }
-
-  sendMsg() {
-    if (this.ValidateFrom()) {
-      document.getElementById('error-msg')!.innerHTML =""
-    }
   }
 
   sendEmail() {
-    if (this.contactForm.valid) {
-      const { name, email, subject, comments } = this.contactForm.value;
-      const mailtoLink = `mailto:pttom@seznam.cz?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\n${comments}`)}`;
-      window.location.href = mailtoLink;
+    if (this.contactForm.invalid) {
+      this.contactForm.markAllAsTouched(); // Zvýrazní chybná pole
+      this.errorMessage = 'Prosím, vyplňte všechna povinná pole správně.';
+      this.formStatus = 'idle';
+      return;
     }
+
+    this.formStatus = 'submitting';
+    this.errorMessage = null;
+
+    const emailData = {
+      name: this.contactForm.value.name,
+      email: this.contactForm.value.email,
+      subject: this.contactForm.value.subject,
+      message: `
+        Zpráva: ${this.contactForm.value.comments}
+      `,
+    };
+
+    this.http.post('https://localhost:7140/api/Email/send-email', emailData).subscribe({
+      next: () => {
+        console.log('E-mail byl úspěšně odeslán.');
+        this.formStatus = 'success';
+        this.contactForm.reset(); // Resetuje formulář
+      },
+      error: (err) => {
+        console.log(err);
+        this.formStatus = 'error';
+        this.errorMessage = `Chyba při odesílání e-mailu. Zkuste to prosím později.`;
+      },
+    });
   }
 }

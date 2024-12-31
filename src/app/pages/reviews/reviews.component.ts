@@ -3,37 +3,40 @@ import { Component } from '@angular/core';
 @Component({
   selector: 'app-reviews',
   templateUrl: './reviews.component.html',
-  styleUrls: ['./reviews.component.scss']
+  styleUrls: ['./reviews.component.scss'],
 })
 export class ReviewsComponent {
   reviews = [
     {
-      title: 'Podlaha v obývacím pokoji',
-      text: 'Byli jsme nadšeni z kvality podlahy i rychlosti instalace.',
-      rating: 5
+      name: 'Pavel Michl',
+      title: 'Great Service',
+      text:
+        'Firmu Tpodlahy, pana Tomáška doporučuji. S odvedenou prací v rámci renovace staré dubové parketové podlahy jsem velice spokojen.' +
+        'Především bych chtěl ocenit dobrou komunikaci, kvalitně a rychle odvedenou práci (broušení starého laku, nový lak a osazení nových lišt kolem stěn)',
+      rating: 5,
+      img: 'assets/images/reviews/p_google.png',
     },
     {
-      title: 'Rekonstrukce staré podlahy',
-      text: 'Starou podlahu jste zrenovovali k nepoznání. Děkujeme!',
-      rating: 5
+      name: 'Radka Vaňková',
+      title: 'Decent Experience',
+      text: 'Firmu pana Tomáška jsme kontaktovali s žádostí o posouzení práce jiného podlaháře. Pan Tomášek byl velmi ochotný a obratem se přijel na podlahu podívat.Následná domluva ohledně kompletního přebroušení a realizace nové podlahy jeho firmou byla profesionální a bezproblémová. Přesto, že bylo chvíli před Vánocemi, nám pan Tomášek s rychlostí pokládky vyšel vstříc. S odvedenou prací jsme velice spokojeni. Děkujeme a budeme doporučovat dál.',
+      rating: 4,
+      img: 'assets/images/reviews/p_google_2.png',
     },
-    {
-      title: 'Vinylové podlahy v kuchyni',
-      text: 'Vinylová podlaha je krásná a snadno se udržuje.',
-      rating: 5
-    }
   ];
 
-  newReview = { text: '', rating: 0 };
+  currentIndex = 0;
 
-  addReview() {
-    if (this.newReview.text.trim() && this.newReview.rating > 0) {
-      this.reviews.push({
-        title: 'Nová recenze',
-        text: this.newReview.text.trim(),
-        rating: this.newReview.rating
-      });
-      this.newReview = { text: '', rating: 0 };
-    }
+  get currentReview() {
+    return this.reviews[this.currentIndex];
+  }
+
+  nextReview() {
+    this.currentIndex = (this.currentIndex + 1) % this.reviews.length;
+  }
+
+  previousReview() {
+    this.currentIndex =
+      (this.currentIndex - 1 + this.reviews.length) % this.reviews.length;
   }
 }

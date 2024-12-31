@@ -1,40 +1,91 @@
 .reviews-page {
-    max-width: 60%;
-    margin: 0 auto;
-    padding: 20px;
-  
-    @media screen and (max-width: 768px) {
-      max-width: 95%;
-      padding: 10px;
-    }
-  }
+  text-align: center;
 
-.reviews {
-  margin-bottom: 30px;
-}
+  .review-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    margin: 2rem 0;
 
-.review {
-  margin-bottom: 20px;
-}
-
-.add-review {
-  textarea {
-    width: 100%;
-    height: 100px;
-    margin-bottom: 10px;
-  }
-
-  .add-review-action {
-    button {
-      background-color: #007bff;
-      color: #fff;
+    .arrow {
+      background: none;
       border: none;
-      padding: 10px 20px;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: rgba(0, 0, 0, 0.1);
+        border-radius: 50%;
+      }
+
+/*       &.left-arrow {
+
+      }
+
+      &.right-arrow {
+
+      } */
+
+      .material-icons-outlined {
+        font-size: 36px;
+        color: #555;
+        transition: color 0.3s ease;
+      }
+
+      &:hover .material-icons-outlined {
+        color: #000;
+      }
     }
 
-    button:hover {
-      background-color: #0056b3;
+    .review {
+      display: flex;
+      align-items: center;
+      background: #f9f9f9;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      padding: 1.5rem;
+      max-width: 600px;
+
+      .review-img {
+        flex-shrink: 0;
+        width: 80px;
+        height: 80px;
+        margin-right: 1rem;
+/*         img {
+           width: 100%;
+          height: 100%; 
+           object-fit: cover;
+          border-radius: 50%;
+          border: 2px solid #ddd; 
+        } */
+      }
+
+      .review-content {
+        text-align: left;
+
+        h4 {
+          margin: 0 0 0.5rem;
+        }
+
+        blockquote {
+          margin: 0 0 0.5rem;
+          font-style: italic;
+          max-height: 12rem;
+          overflow: hidden;
+        }
+
+        p {
+          margin: 0;
+          font-size: 0.9rem;
+          color: #555;
+        }
+      }
     }
   }
 }
