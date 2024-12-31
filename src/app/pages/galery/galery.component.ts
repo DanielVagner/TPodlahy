@@ -23,7 +23,7 @@ export class GaleryComponent implements OnInit, OnDestroy {
       return;
     }
 
-    const apiUrl = `https://localhost:7140/api/Gallery/images?folder=${encodeURIComponent(folder)}`;
+    const apiUrl = `https://localhost:7140/api/gallery/images?folder=${encodeURIComponent(folder)}`;
 
     this.http.get<string[]>(apiUrl).subscribe({
       next: (imageUrls) => {
