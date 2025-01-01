@@ -41,7 +41,7 @@ export class ContactComponent {
       `,
     };
 
-    this.http.post('https://localhost:7140/api/email/send-email', emailData).subscribe({
+    this.http.post('https://tpodlahy.azurewebsites.net/api/email/send-email', emailData).subscribe({
       next: () => {
         console.log('E-mail byl úspěšně odeslán.');
         this.formStatus = 'success';
