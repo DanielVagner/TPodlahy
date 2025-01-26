@@ -20,8 +20,22 @@ export class ReviewsComponent {
       name: 'Radka Vaňková',
       title: 'Decent Experience',
       text: 'Firmu pana Tomáška jsme kontaktovali s žádostí o posouzení práce jiného podlaháře. Pan Tomášek byl velmi ochotný a obratem se přijel na podlahu podívat.Následná domluva ohledně kompletního přebroušení a realizace nové podlahy jeho firmou byla profesionální a bezproblémová. Přesto, že bylo chvíli před Vánocemi, nám pan Tomášek s rychlostí pokládky vyšel vstříc. S odvedenou prací jsme velice spokojeni. Děkujeme a budeme doporučovat dál.',
-      rating: 4,
+      rating: 5,
       img: 'assets/images/reviews/p_google_2.png',
+    },
+    {
+      name: 'Jana Zdobnická',
+      title: 'Decent Experience',
+      text: 'Kvalitní práce za příznivou cenu a žádné průtahy. Tuto firmu doporučuji a děkuji panu Tomáškovi, že mě nenechal napospas nejmenovanému lupiči z oboru podlahářství, který za stejnou zakázku požadoval dvojnásobek.',
+      rating: 5,
+      img: 'assets/images/reviews/p_google_3.png',
+    },
+    {
+      name: 'Alena Vosečková',
+      title: 'Decent Experience',
+      text: 'Firmu Tpodlahy, pana Tomáška mohu doporučit. Jak s prací (odstranění původní korkové podlahy a následně položení vinylové podlahy, osazení lišt kolem stěn), tak s komunikací, ochotou a vstřícností jsem velmi spokojena. Sama tuto firmu ještě určitě využiji.',
+      rating: 5,
+      img: 'assets/images/reviews/p_google_4.png',
     },
   ];
 
