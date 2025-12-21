@@ -1,103 +1,147 @@
 .navbar {
-    display: flex;
-    align-items: center; /* Zarovnání prvků ve středu */
-    background-color: #f8f9fa; /* Příklad barvy pozadí */
-  }
-  
-  .navbar-brand a {
-    display: flex;
-    align-items: center; /* Zarovná obsah odkazu ve středu vertikálně */
-    text-decoration: none; /* Odebere podtržení odkazu */
-    color: black; /* Barva textu */
-  }
-  
-  .navbar-brand img {
-    margin-right: 10px; /* Odstup mezi obrázkem a textem */
-  }
-  
-  span {
-    font-weight: bold; /* Tučné písmo pro text */
-  }
+  display: flex;
+  align-items: center;
+  background-color: #f8f9fa; /* Barva pozadí navigace */
+  z-index: 1050;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 
-  .navbar-default .navbar-toggle:focus,
-  .navbar-default .navbar-toggle:hover {
-      background-color: transparent;
-  }
-  
-  .navbar-default .navbar-toggle {
-      border: none;
-  }
-  
-  .icon-bar {
-      transition: all 0.15s;
-      display: block; /* Ujistěte se, že se spany chovají jako blokové elementy */
-      width: 28px; /* Šířka ikony */
-      height: 3px; /* Výška jednoho pruhu ikony */
-      background-color: #333; /* Barva pruhů */
-      margin: 6px 0; /* Rozestupy mezi pruhy */
-  }
-  
-  .top-bar {
-      transform-origin: 10% 10%;
-  }
-  
-  .bottom-bar {
-      transform-origin: 10% 90%;
-  }
-  
+  .navbar-brand {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: black;
 
+    img {
+      margin-right: 10px;
+    }
+
+    span {
+      font-weight: bold;
+      font-size: 1.5rem;
+    }
+  }
 
   .navbar-toggler {
+    display: none; /* Skryjeme na desktopu */
     border: none;
     background-color: transparent;
-  }
-  
-  .navbar-toggler span.icon-bar {
-    display: block;
-    width: 30px;
-    height: 3px;
-    background-color: #000;
-    margin: 6px 0;
-    transition: all 0.3s;
-  }
-  
-  .navbar-toggler:not(.collapsed) .top-bar {
-    transform: rotate(45deg);
-    transform-origin: 10% 10%;
-  }
-  
-  .navbar-toggler:not(.collapsed) .middle-bar {
-    opacity: 0;
-  }
-  
-  .navbar-toggler:not(.collapsed) .bottom-bar {
-    transform: rotate(-45deg);
-    transform-origin: 6% 90%;
-  }
-  
-  .navbar-toggler.collapsed .top-bar,
-  .navbar-toggler.collapsed .bottom-bar {
-    transform: rotate(0);
-  }
-  
-  .navbar-toggler.collapsed .middle-bar {
-    opacity: 1;
-  }
- 
-  .show {
-    transform: translateY(-100%);
-    animation: showSlideIn 1s forwards;
-  }
-  
-  @keyframes showSlideIn {
-    0% {
-      opacity: 0;
-      transform: translateY(-100%);
+    z-index: 1100;
+
+    span.icon-bar {
+      display: block;
+      width: 30px;
+      height: 3px;
+      background-color: #000;
+      margin: 6px 0;
+      transition: all 0.3s ease;
     }
-    100% {
+
+    &.collapsed .top-bar,
+    &.collapsed .bottom-bar {
+      transform: rotate(0);
+    }
+
+    &.collapsed .middle-bar {
       opacity: 1;
-      transform: translateY(0);
+    }
+
+    &:not(.collapsed) .top-bar {
+      transform: rotate(45deg);
+      transform-origin: 10% 10%;
+    }
+
+    &:not(.collapsed) .middle-bar {
+      opacity: 0;
+    }
+
+    &:not(.collapsed) .bottom-bar {
+      transform: rotate(-45deg);
+      transform-origin: 6% 90%;
     }
   }
-  
-  
+
+  .navbar-collapse {
+    display: flex; /* Výchozí styl pro desktop */
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+
+    @media (max-width: 991.98px) {
+      position: absolute;
+      top: 3.5em; /* Odstup od loga */
+      left: 0;
+      right: 0;
+      flex-direction: column; /* Stack menu items na mobilu */
+      background-color: #f8f9fa;
+      padding: 1rem;
+      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+      transform: translateY(-20px);
+      opacity: 0;
+      pointer-events: none;
+      transition: transform 0.3s ease, opacity 0.3s ease;
+    }
+
+    &.show {
+      @media (max-width: 991.98px) {
+        transform: translateY(0);
+        opacity: 1;
+        pointer-events: auto;
+      }
+    }
+  }
+
+  .navbar-nav {
+    display: flex;
+    flex-direction: row;
+
+    @media (max-width: 991.98px) {
+      flex-direction: column; /* Stack položek na mobilu */
+      align-items: flex-start;
+    }
+
+    .nav-item {
+      margin: 0 1em;
+
+      @media (max-width: 991.98px) {
+        margin: 0.5em 0;
+      }
+
+      .nav-link {
+        text-decoration: none;
+        font-size: 1rem;
+        color: #333;
+
+        &.active {
+          font-weight: bold;
+          border-bottom: 2px solid #333;
+        }
+
+        &:hover {
+          color: #007bff;
+        }
+      }
+    }
+  }
+
+  .list-inline {
+    display: flex;
+    gap: 1rem;
+
+    .list-inline-item {
+      a {
+        font-size: 1.5rem;
+        color: #007bff;
+
+        &:hover {
+          color: #0056b3;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 991.98px) {
+    .navbar-toggler {
+      display: block; /* Zobrazíme na mobilu */
+    }
+  }
+}

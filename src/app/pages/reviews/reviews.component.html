@@ -10,14 +10,23 @@
     </button>
 
     <div class="review">
-      <div class="review-img">
-        <img [src]=currentReview.img alt="Reviewer Image" />
+      <div class="review-header">
+        <div class="review-img">
+          <img [src]="currentReview.img" alt="Reviewer Image" />
+        </div>
+
+        <div class="review-title">
+          <h4>{{ currentReview.name }}</h4>
+        </div>
       </div>
-      <div class="review-content">
-        <h4>{{ currentReview.name }}</h4>
-        <blockquote>{{ currentReview.text }}</blockquote>
-        <p><strong>Hodnocení:</strong> {{ currentReview.rating }} ⭐</p>
-      </div>
+
+      <blockquote class="review-text">
+        {{ currentReview.text }}
+      </blockquote>
+
+      <p class="review-rating">
+        <strong>Hodnocení:</strong> {{ currentReview.rating }} ⭐
+      </p>
     </div>
 
     <button class="arrow right-arrow" (click)="nextReview()">

@@ -37,6 +37,13 @@ export class ReviewsComponent {
       rating: 5,
       img: 'assets/images/reviews/p_google_4.png',
     },
+        {
+      name: 'Jan Suk',
+      title: 'Decent Experience',
+      text: 'Profesionální přístup: pan Tomášek komunikuje, zastaví se přes samotnou objednávkou, domluvené termíny a částky dodržuje. Jednoznačně doporučuji.',
+      rating: 5,
+      img: 'assets/images/reviews/p_google_5.png',
+    },
   ];
 
   currentIndex = 0;

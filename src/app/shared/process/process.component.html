@@ -5,11 +5,10 @@
       <div class="col-lg-6">
         <div class="text-center mb-4">
           <h3>Jak pracujeme</h3>
-          <p class="text-muted">
-          </p>
+          <p class="text-muted"></p>
         </div>
       </div>
-      <!--end col-->
+
       <div class="col-lg-10">
         <div class="timeline-page position-relative py-4">
           <div class="timeline-item mb-lg-5 pb-5">
@@ -23,36 +22,29 @@
                   />
                 </div>
               </div>
-              <!--end col-->
+
               <div class="col-lg-6">
-                <div
-                  class="works-description-right text-start bg-light mx-lg-3 mx-4"
-                >
+                <div class="works-description-right text-start bg-light mx-lg-3 mx-4">
                   <h5 class="fs-18">Kontakt</h5>
                   <p class="text-muted mb-0">
                     Pokud máte zájem o naše podlahářské služby nebo potřebujete poradit, neváhejte nás kontaktovat. Jsme tu pro vás, připraveni zodpovědět všechny vaše dotazy a domluvit si schůzku.
                   </p>
                 </div>
               </div>
-              <!--end col-->
             </div>
-            <!--end row-->
           </div>
-          <!--end timeline-item-->
 
           <div class="timeline-item mb-5 pb-5">
             <div class="row">
               <div class="col-lg-6">
-                <div
-                  class="works-description-left text-start bg-light mx-lg-3 mx-4 text-lg-end"
-                >
+                <div class="works-description-left text-start bg-light mx-lg-3 mx-4 text-lg-end">
                   <h5 class="fs-18">Realizace</h5>
                   <p class="text-muted mb-0">
                     Naše realizace zahrnuje kompletní pokládku podlah, ať už se jedná o dřevěné, laminátové, vinylové nebo jiné typy podlah. Pracujeme rychle a efektivně, s důrazem na kvalitu a detaily, abyste byli maximálně spokojeni.
                   </p>
                 </div>
               </div>
-              <!--end col-->
+
               <div class="col-lg-6 order-first order-lg-last">
                 <div class="text-center mb-5 mb-lg-0">
                   <img
@@ -62,11 +54,9 @@
                   />
                 </div>
               </div>
-              <!--end col-->
             </div>
-            <!--end row-->
           </div>
-          <!--end timeline-item-->
+
           <div class="timeline-item">
             <div class="row align-items-start">
               <div class="col-lg-6">
@@ -78,45 +68,36 @@
                   />
                 </div>
               </div>
-              <!--end col-->
+
               <div class="col-lg-6">
-                <div
-                  class="works-description-right text-start bg-light mx-lg-3 mx-4"
-                >
+                <div class="works-description-right text-start bg-light mx-lg-3 mx-4">
                   <h5 class="fs-18">Předání díla</h5>
                   <p class="text-muted mb-0">
                     Po dokončení všech prací následuje finální kontrola a předání díla zákazníkovi. Dbáme na to, aby vše bylo v naprostém pořádku a vy jste byli spokojeni s výsledkem naší práce. Na závěr vám poskytneme všechny potřebné informace pro údržbu a péči o vaši novou podlahu.
                   </p>
                 </div>
               </div>
-              <!--end col-->
             </div>
-            <!--end row-->
           </div>
-          <!--end timeline-item-->
+
         </div>
-        <!-- timeline-page -->
       </div>
-      <!--end col-->
     </div>
-    <!--end row-->
   </div>
-  <!--end container-->
 </section>
 <!-- END Process -->
 
 <!-- START CTA -->
-<section
-  class="bg-cta"
-  style="background-image: url(assets/images/products/parkety.jpeg)"
->
+<section class="bg-cta" style="background-image: url(assets/images/products/parkety.jpeg)">
   <div class="bg-overlay"></div>
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-lg-6">
         <div class="text-center text-white">
           <h3 class="mb-3">Objevte, co nás dělá jedinečnými.</h3>
-          <p> Ve videu níže vám představujeme náš tým, prohlédnete si naše pracovní prostředí a dozvíte se více o našich projektech a způsobu práce. Zjistěte, proč jsme správnou volbou pro vaše potřeby.</p>
+          <p>
+            Ve videu níže vám představujeme náš tým, prohlédnete si naše pracovní prostředí a dozvíte se více o našich projektech a způsobu práce. Zjistěte, proč jsme správnou volbou pro vaše potřeby.
+          </p>
           <a
             href="javascript:void(0)"
             class="play-btn mt-4"
@@ -126,11 +107,8 @@
           </a>
         </div>
       </div>
-      <!--end col-->
     </div>
-    <!--end row-->
   </div>
-  <!--end container-->
 </section>
 <!-- END CTA -->
 
@@ -138,31 +116,29 @@
 <div
   bsModal
   #presentationVideo="bs-modal"
-  class="modal fade"
+  class="modal fade process-modal"
   id="presentationVideo"
   tabindex="-1"
 >
   <div class="modal-dialog modal-dialog-centered modal-lg">
     <div class="modal-content bg-transparent border-0">
-      <div class="modal-body p-0">
-        <div class="text-end">
+      <div class="modal-body p-0 process-modal__body">
+        <div class="text-end process-modal__close">
           <button
             type="button"
             class="btn-close btn-close-white"
-            (click)="presentationVideo.hide(); stopVideo()"
+            (click)="presentationVideo.hide()"
             aria-label="Close"
           ></button>
         </div>
-        <div class="ratio ratio-16x9">
-          <video #videoPlayer id="VisaChipCardVideo" class="video-box" controls>
-            <source src="assets/video/ptpodlahy.mp4" type="video/mp4" />
-          </video>
-        </div>
+
+      <div class="ratio ratio-16x9 process-modal__video process-modal__video--full">
+  <video #videoPlayer class="video-box" controls playsinline>
+    <source src="assets/video/ptpodlahy.mp4" type="video/mp4" />
+  </video>
+</div>
       </div>
-      <!--end modal-body-->
     </div>
-    <!--end modal-content-->
   </div>
-  <!--end modal-dialog-->
 </div>
 <!--end modal-->

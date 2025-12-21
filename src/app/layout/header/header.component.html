@@ -11,7 +11,7 @@
 </div>
 <!--end page Loader -->
 
-<!-- START NAVBAR -->
+<!-- Start Navbar -->
 <nav
   id="navbar"
   class="navbar navbar-expand-lg fixed-top sticky"
@@ -23,22 +23,17 @@
     [spiedTags]="['section']"
     (sectionChange)="onSectionChange($event)"
   >
-    <nav class="navbar">
-      <div class="navbar-brand">
-        <a href="/">
-          <img src="assets/images/logo.png" alt="" height="60" />
-          <span>Podlahy</span>
-        </a>
-      </div>
-    </nav>
+    <!-- Navbar Brand -->
+    <a class="navbar-brand" href="/">
+      <img src="assets/images/logo.png" alt="Podlahy Logo" height="60" />
+      <span>Podlahy</span>
+    </a>
+
+    <!-- Navbar Toggler -->
     <button
       class="navbar-toggler"
       [class.collapsed]="!isMenuOpen"
       type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
       (click)="toggleMenu()"
       aria-label="Toggle navigation"
     >
@@ -46,7 +41,14 @@
       <span class="icon-bar middle-bar"></span>
       <span class="icon-bar bottom-bar"></span>
     </button>
-    <div class="collapse navbar-collapse" scrollSpy id="navbarSupportedContent">
+
+    <!-- Collapsible Menu -->
+    <div
+      class="navbar-collapse"
+      [class.show]="isMenuOpen"
+      id="navbarSupportedContent"
+    >
+      <!-- Navbar Links -->
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0" id="navbar-navList">
         <li class="nav-item">
           <a
@@ -60,7 +62,7 @@
         </li>
         <li class="nav-item">
           <a
-            (click)="navigateToSection('#home')"
+            (click)="navigateToSection('#features')"
             [ngxScrollTo]="'#features'"
             [ngxScrollToOffset]="scrollOffset"
             class="nav-link"
@@ -71,7 +73,7 @@
         </li>
         <li class="nav-item">
           <a
-            (click)="navigateToSection('#home')"
+            (click)="navigateToSection('#contact')"
             [ngxScrollTo]="'#contact'"
             [ngxScrollToOffset]="scrollOffset"
             class="nav-link"
@@ -82,7 +84,7 @@
         </li>
         <li class="nav-item">
           <a
-            (click)="navigateToSection('#home')"
+            (click)="navigateToSection('#reviews')"
             [ngxScrollTo]="'#reviews'"
             [ngxScrollToOffset]="scrollOffset"
             class="nav-link"
@@ -92,17 +94,16 @@
           >
         </li>
       </ul>
-      <!--end navbar-nav-->
+      <!-- Social Media Links -->
       <ul class="list-inline mb-0 ps-lg-4 ms-2">
         <li class="list-inline-item">
-          <a href="https://www.facebook.com/PTpodlahy" class="primary-link"
-            ><i class="mdi mdi-facebook me-1"></i
-          ></a>
+          <a href="https://www.facebook.com/PTpodlahy" class="primary-link">
+            <i class="mdi mdi-facebook me-1"></i>
+          </a>
         </li>
       </ul>
     </div>
-    <!--end collapse-->
   </div>
-  <!--end container-->
 </nav>
-<!-- END NAVBAR -->
+<!-- End Navbar -->
+

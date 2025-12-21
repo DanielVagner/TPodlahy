@@ -1,18 +1,56 @@
 <div>
   <div class="gallery">
-    @for (photo of photos ; track photo) {
-
-    <div class="gallery-item">
-      <img [src]="photo" alt="Gallery Photo" (click)="showImage(photo)" />
-    </div>
+    @for (photo of photos; track photo) {
+      <div class="gallery-item">
+        <img [src]="photo" alt="Gallery Photo" (click)="openLightbox(photo)" />
+      </div>
     }
   </div>
 
-  <div class="overlay" [class.show]="selectedPhoto" (click)="hideImage()">
-    <img
-      [src]="selectedPhoto"
-      class="full-image"
-      [class.show]="selectedPhoto"
-    />
+  <div
+    class="overlay"
+    [class.show]="isOpen"
+    (click)="closeLightbox()"
+    (touchstart)="onTouchStart($event)"
+    (touchend)="onTouchEnd($event)"
+  >
+    <button
+      type="button"
+      class="nav nav--left"
+      (click)="prev($event)"
+      [disabled]="!canNavigate"
+      aria-label="Previous image"
+    >
+      <span class="nav__icon">‹</span>
+    </button>
+
+    <div class="viewer" (click)="$event.stopPropagation()">
+      <img
+        [src]="selectedPhoto"
+        class="full-image"
+        [class.show]="isOpen"
+        alt="Selected photo"
+        draggable="false"
+      />
+    </div>
+
+    <button
+      type="button"
+      class="nav nav--right"
+      (click)="next($event)"
+      [disabled]="!canNavigate"
+      aria-label="Next image"
+    >
+      <span class="nav__icon">›</span>
+    </button>
+
+    <button
+      type="button"
+      class="close"
+      (click)="closeLightbox($event)"
+      aria-label="Close"
+    >
+      ✕
+    </button>
   </div>
 </div>
