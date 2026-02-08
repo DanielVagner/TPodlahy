@@ -1,27 +1,102 @@
-# TPodlahy
+# T-Podlahy - Profesionální podlahářské práce
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.5.
+Moderní webová prezentace podlahářské firmy vytvořená v React + Vite + Tailwind CSS v4.
 
-## Development server
+## 🚀 Rychlý start
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+### Instalace závislostí
 
-## Code scaffolding
+```bash
+# S použitím npm
+npm install
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Nebo s pnpm (doporučeno)
+pnpm install
 
-## Build
+# Nebo s yarn
+yarn install
+```
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Spuštění dev serveru
 
-## Running unit tests
+```bash
+npm run dev
+```
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Aplikace bude dostupná na `http://localhost:5173`
 
-## Running end-to-end tests
+### Build pro produkci
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+```bash
+npm run build
+```
 
-## Further help
+Výsledek bude v adresáři `dist/`
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+### Preview produkční verze
+
+```bash
+npm run preview
+```
+
+## ✨ Funkce
+
+- 🎨 **Moderní design** - Teplé barvy inspirované dřevem a podlahami (jantarová hnědá, krémová)
+- 🏷️ **Vlastní logo** - TPodlahy logo v Header a Footer
+- 🎬 **Video sekce** - Prezentace práce s YouTube embedem
+- 🌓 **Dark/Light Mode** - Plně funkční přepínání témat s localStorage persistencí
+- 📱 **Responzivní** - Optimalizováno pro mobily, tablety i desktop
+- 🖼️ **Galerie projektů** - 6 reálných projektů s vlastními detailními galeriemi
+- 📧 **Funkční formulář** - Odesílání emailů přes Azure API endpoint
+- ⚡ **Rychlé načítání** - Optimalizováno pomocí Vite
+- 🎭 **Smooth scroll** - Plynulá navigace mezi sekcemi
+- 🔤 **Google Fonts** - Inter (text) a Poppins (nadpisy)
+
+## 🛠️ Technologie
+
+- **React 18.3.1** - UI framework
+- **TypeScript 5.9+** - Type safety
+- **Vite 6.3.5** - Build tool a dev server
+- **Tailwind CSS v4.1** - Utility-first CSS framework
+- **Lucide React** - Moderní ikony
+- **Motion** - Animace (formerly Framer Motion)
+- **Unsplash API** - Stock fotografie
+
+## 📂 Struktura projektu
+
+```
+├── src/
+│   ├── app/
+│   │   ├── components/      # React komponenty
+│   │   │   ├── Header.tsx
+│   │   │   ├── Hero.tsx
+│   │   │   ├── Services.tsx
+│   │   │   ├── Gallery.tsx
+│   │   │   ├── About.tsx
+│   │   │   ├── Contact.tsx
+│   │   │   ├── Footer.tsx
+│   │   │   └── ui/          # UI komponenty
+│   │   ├── contexts/        # React contexts (ThemeContext)
+│   │   └── App.tsx          # Hlavní komponenta
+│   ├── styles/              # CSS a Tailwind konfigurace
+│   │   ├── fonts.css
+│   │   ├── index.css
+│   │   ├── tailwind.css
+│   │   └── theme.css
+│   └── main.tsx             # Entry point
+├── index.html
+├── package.json
+├── tsconfig.json
+└── vite.config.ts
+```
+
+## 🎨 Barevné schéma
+
+- **Primární**: Jantarově hnědá (amber-700) - evokuje dřevo a lak
+- **Pozadí světlé**: Krémová (amber-50) - teplá alternativa k bílé
+- **Pozadí tmavé**: Kamenná hnědá (stone-900) - teplý tmavý tón
+- **Akcenty**: Medové a béžové odstíny
+
+## 📄 Licence
+
+Tento projekt je soukromý a není určen k dalšímu šíření.
