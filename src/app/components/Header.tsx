@@ -4,6 +4,7 @@ import { useTheme } from '../contexts/ThemeContext';
 
 export function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>('home');
   const { isDark, toggleTheme } = useTheme();
 
   const scrollToSection = (id: string) => {
@@ -11,6 +12,7 @@ export function Header() {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
       setMobileMenuOpen(false);
+      setActiveSection(id);
     }
   };
 
@@ -26,22 +28,40 @@ export function Header() {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
-            <button onClick={() => scrollToSection('home')} className="cursor-pointer text-gray-700 dark:text-gray-300 hover:text-amber-700 dark:hover:text-amber-500 hover:underline transition-all">
+            <button
+              onClick={() => scrollToSection('home')}
+               className={`cursor-pointer text-gray-700 dark:text-gray-300 hover:text-amber-700 dark:hover:text-amber-500 hover:underline transition-all ${activeSection === 'home' ? '!text-amber-700 dark:!text-amber-500 font-semibold underline' : ''}`}
+            >
               Domů
             </button>
-            <button onClick={() => scrollToSection('video')} className="cursor-pointer text-gray-700 dark:text-gray-300 hover:text-amber-700 dark:hover:text-amber-500 hover:underline transition-all">
+            <button
+              onClick={() => scrollToSection('video')}
+               className={`cursor-pointer text-gray-700 dark:text-gray-300 hover:text-amber-700 dark:hover:text-amber-500 hover:underline transition-all ${activeSection === 'video' ? '!text-amber-700 dark:!text-amber-500 font-semibold underline' : ''}`}
+            >
               Video
             </button>
-            <button onClick={() => scrollToSection('services')} className="cursor-pointer text-gray-700 dark:text-gray-300 hover:text-amber-700 dark:hover:text-amber-500 hover:underline transition-all">
+            <button
+              onClick={() => scrollToSection('services')}
+               className={`cursor-pointer text-gray-700 dark:text-gray-300 hover:text-amber-700 dark:hover:text-amber-500 hover:underline transition-all ${activeSection === 'services' ? '!text-amber-700 dark:!text-amber-500 font-semibold underline' : ''}`}
+            >
               Služby
             </button>
-            <button onClick={() => scrollToSection('gallery')} className="cursor-pointer text-gray-700 dark:text-gray-300 hover:text-amber-700 dark:hover:text-amber-500 hover:underline transition-all">
+            <button
+              onClick={() => scrollToSection('gallery')}
+               className={`cursor-pointer text-gray-700 dark:text-gray-300 hover:text-amber-700 dark:hover:text-amber-500 hover:underline transition-all ${activeSection === 'gallery' ? '!text-amber-700 dark:!text-amber-500 font-semibold underline' : ''}`}
+            >
               Galerie
             </button>
-            <button onClick={() => scrollToSection('about')} className="cursor-pointer text-gray-700 dark:text-gray-300 hover:text-amber-700 dark:hover:text-amber-500 hover:underline transition-all">
+            <button
+              onClick={() => scrollToSection('about')}
+               className={`cursor-pointer text-gray-700 dark:text-gray-300 hover:text-amber-700 dark:hover:text-amber-500 hover:underline transition-all ${activeSection === 'about' ? '!text-amber-700 dark:!text-amber-500 font-semibold underline' : ''}`}
+            >
               O nás
             </button>
-            <button onClick={() => scrollToSection('contact')} className="cursor-pointer text-gray-700 dark:text-gray-300 hover:text-amber-700 dark:hover:text-amber-500 hover:underline transition-all">
+            <button
+              onClick={() => scrollToSection('contact')}
+               className={`cursor-pointer text-gray-700 dark:text-gray-300 hover:text-amber-700 dark:hover:text-amber-500 hover:underline transition-all ${activeSection === 'contact' ? '!text-amber-700 dark:!text-amber-500 font-semibold underline' : ''}`}
+            >
               Kontakt
             </button>
           </nav>
@@ -79,35 +99,51 @@ export function Header() {
           </div>
         </div>
 
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <nav className="md:hidden py-4 border-t border-gray-200 dark:border-gray-700">
-            <div className="flex flex-col gap-4">
-              <button onClick={() => scrollToSection('home')} className="cursor-pointer text-left text-gray-700 dark:text-gray-300 hover:text-amber-700 dark:hover:text-amber-500 hover:underline transition-all">
-                Domů
-              </button>
-              <button onClick={() => scrollToSection('video')} className="cursor-pointer text-left text-gray-700 dark:text-gray-300 hover:text-amber-700 dark:hover:text-amber-500 hover:underline transition-all">
-                Video
-              </button>
-              <button onClick={() => scrollToSection('services')} className="cursor-pointer text-left text-gray-700 dark:text-gray-300 hover:text-amber-700 dark:hover:text-amber-500 hover:underline transition-all">
-                Služby
-              </button>
-              <button onClick={() => scrollToSection('gallery')} className="cursor-pointer text-left text-gray-700 dark:text-gray-300 hover:text-amber-700 dark:hover:text-amber-500 hover:underline transition-all">
-                Galerie
-              </button>
-              <button onClick={() => scrollToSection('about')} className="cursor-pointer text-left text-gray-700 dark:text-gray-300 hover:text-amber-700 dark:hover:text-amber-500 hover:underline transition-all">
-                O nás
-              </button>
-              <button onClick={() => scrollToSection('contact')} className="cursor-pointer text-left text-gray-700 dark:text-gray-300 hover:text-amber-700 dark:hover:text-amber-500 hover:underline transition-all">
-                Kontakt
-              </button>
-              <a href="tel:+420123456789" className="cursor-pointer flex items-center gap-2 text-amber-700 dark:text-amber-500 hover:text-amber-800 dark:hover:text-amber-400 hover:underline transition-all">
-                <Phone className="size-4" />
-                <span>+420 604 786 107</span>
-              </a>
-            </div>
-          </nav>
-        )}
+        {/* Mobile Menu (animated expand/collapse) */}
+        <nav className={`md:hidden border-t border-gray-200 dark:border-gray-700 overflow-hidden transition-[max-height] duration-300 ease-out ${mobileMenuOpen ? 'max-h-96' : 'max-h-0'}`}>
+          <div className="py-4 flex flex-col gap-4">
+            <button
+              onClick={() => scrollToSection('home')}
+              className={`cursor-pointer text-left text-gray-700 dark:text-gray-300 hover:text-amber-700 dark:hover:text-amber-500 hover:underline transition-all ${activeSection === 'home' ? '!text-amber-700 dark:!text-amber-500 font-semibold underline' : ''}`}
+            >
+              Domů
+            </button>
+            <button
+              onClick={() => scrollToSection('video')}
+              className={`cursor-pointer text-left text-gray-700 dark:text-gray-300 hover:text-amber-700 dark:hover:text-amber-500 hover:underline transition-all ${activeSection === 'video' ? '!text-amber-700 dark:!text-amber-500 font-semibold underline' : ''}`}
+            >
+              Video
+            </button>
+            <button
+              onClick={() => scrollToSection('services')}
+              className={`cursor-pointer text-left text-gray-700 dark:text-gray-300 hover:text-amber-700 dark:hover:text-amber-500 hover:underline transition-all ${activeSection === 'services' ? '!text-amber-700 dark:!text-amber-500 font-semibold underline' : ''}`}
+            >
+              Služby
+            </button>
+            <button
+              onClick={() => scrollToSection('gallery')}
+              className={`cursor-pointer text-left text-gray-700 dark:text-gray-300 hover:text-amber-700 dark:hover:text-amber-500 hover:underline transition-all ${activeSection === 'gallery' ? '!text-amber-700 dark:!text-amber-500 font-semibold underline' : ''}`}
+            >
+              Galerie
+            </button>
+            <button
+              onClick={() => scrollToSection('about')}
+              className={`cursor-pointer text-left text-gray-700 dark:text-gray-300 hover:text-amber-700 dark:hover:text-amber-500 hover:underline transition-all ${activeSection === 'about' ? '!text-amber-700 dark:!text-amber-500 font-semibold underline' : ''}`}
+            >
+              O nás
+            </button>
+            <button
+              onClick={() => scrollToSection('contact')}
+              className={`cursor-pointer text-left text-gray-700 dark:text-gray-300 hover:text-amber-700 dark:hover:text-amber-500 hover:underline transition-all ${activeSection === 'contact' ? '!text-amber-700 dark:!text-amber-500 font-semibold underline' : ''}`}
+            >
+              Kontakt
+            </button>
+            <a href="tel:+420123456789" className="cursor-pointer flex items-center gap-2 text-amber-700 dark:text-amber-500 hover:text-amber-800 dark:hover:text-amber-400 hover:underline transition-all">
+              <Phone className="size-4" />
+              <span>+420 604 786 107</span>
+            </a>
+          </div>
+        </nav>
       </div>
     </header>
   );
