@@ -4,7 +4,7 @@ export function About() {
   const stats = [
     {
       icon: Clock,
-      number: '15+',
+      number: '25+',
       label: 'Let zkušeností'
     },
     {
@@ -34,7 +34,7 @@ export function About() {
               O nás
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
-              Jsme rodinná firma s více než 15letou tradicí v oblasti pokládky podlah. Specializujeme se na vinylové podlahy, laminát a renovace schodišť.
+              Jsme rodinná firma s více než 25letou tradicí v oblasti pokládky podlah, renovace parket, pokládku pvc a koberce. Specializujeme se na vinylové podlahy, laminát a renovace schodišť.
             </p>
             <p className="text-lg text-gray-600 dark:text-gray-300 mb-6">
               Naším cílem je poskytovat našim zákazníkům pouze ty nejkvalitnější materiály a služby za férové ceny. Každý projekt bereme jako jedinečný a přistupujeme k němu s maximální pečlivostí.
