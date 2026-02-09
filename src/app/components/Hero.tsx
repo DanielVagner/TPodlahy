@@ -28,7 +28,7 @@ export function Hero() {
             Profesionální pokládka podlah
           </h2>
           <p className="text-xl md:text-2xl text-gray-200 mb-8">
-            Specializujeme se na pokládku vinylových podlah, laminátů a renovaci schodišť. Kvalita a preciznost v každém detailu.
+            Specializujeme se na pokládku vinylových podlah, laminátů, renovace parket, pokládku pvc, koberce a renovaci schodišť. Kvalita a preciznost v každém detailu.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 mb-12">
