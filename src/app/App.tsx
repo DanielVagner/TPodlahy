@@ -1,3 +1,5 @@
+import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { Video } from './components/Video';
@@ -7,22 +9,47 @@ import { About } from './components/About';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { ThemeProvider } from './contexts/ThemeContext';
+import { GalleryPage } from './pages/GalleryPage';
+
+function MainLayout() {
+  const location = useLocation();
+
+  useEffect(() => {
+    const state = location.state as { scrollTo?: string } | null;
+    if (state?.scrollTo) {
+      setTimeout(() => {
+        document.getElementById(state.scrollTo!)?.scrollIntoView({ behavior: 'smooth' });
+      }, 50);
+    } else {
+      window.scrollTo(0, 0);
+    }
+  }, []);
+
+  return (
+    <div className="min-h-screen bg-white dark:bg-zinc-950 transition-colors">
+      <Header />
+      <main>
+        <Hero />
+        <Video />
+        <Services />
+        <Gallery />
+        <About />
+        <Contact />
+      </main>
+      <Footer />
+    </div>
+  );
+}
 
 export default function App() {
   return (
-    <ThemeProvider>
-      <div className="min-h-screen bg-white dark:bg-zinc-950 transition-colors">
-        <Header />
-        <main>
-          <Hero />
-          <Video />
-          <Services />
-          <Gallery />
-          <About />
-          <Contact />
-        </main>
-        <Footer />
-      </div>
-    </ThemeProvider>
+    <BrowserRouter>
+      <ThemeProvider>
+        <Routes>
+          <Route path="/" element={<MainLayout />} />
+          <Route path="/galerie" element={<GalleryPage />} />
+        </Routes>
+      </ThemeProvider>
+    </BrowserRouter>
   );
 }

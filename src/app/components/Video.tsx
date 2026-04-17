@@ -11,7 +11,7 @@ const videoFeatures = [
 
 export function Video() {
   const [isPlaying, setIsPlaying] = useState(false);
-  const youtubeVideoId = 'eOiIEyn-FQY';
+  const youtubeVideoId = '5oJP9X16etg';
 
   return (
     <section id="video" className="py-24 bg-zinc-50 dark:bg-zinc-900 transition-colors">

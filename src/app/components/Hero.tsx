@@ -1,5 +1,6 @@
 import { ArrowRight, ChevronDown } from 'lucide-react';
 import { ImageWithFallback } from './ImageWithFallback';
+import heroBg from '../../assets/imgs/WhatsApp Image 2026-04-17 at 20.41.49 (1).jpeg';
 
 const stats = [
   { value: '25+', label: 'let zkušeností' },
@@ -26,8 +27,8 @@ export function Hero() {
       {/* Background image */}
       <div className="absolute inset-0 z-0">
         <ImageWithFallback
-          src="https://images.pexels.com/photos/15066939/pexels-photo-15066939.jpeg?auto=compress&cs=tinysrgb&w=1920"
-          alt="Herringbone parketová podlaha"
+          src={heroBg}
+          alt="Pokládka herringbone parketové podlahy"
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/92 via-zinc-950/70 to-zinc-950/20" />
