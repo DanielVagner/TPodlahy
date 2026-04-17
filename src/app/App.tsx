@@ -10,6 +10,7 @@ import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { ThemeProvider } from './contexts/ThemeContext';
 import { GalleryPage } from './pages/GalleryPage';
+import { Reviews } from './components/Reviews';
 
 function MainLayout() {
   const location = useLocation();
@@ -33,6 +34,7 @@ function MainLayout() {
         <Video />
         <Services />
         <Gallery />
+        <Reviews />
         <About />
         <Contact />
       </main>

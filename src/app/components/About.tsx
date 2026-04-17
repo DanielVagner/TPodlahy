@@ -1,7 +1,7 @@
 import { Award, Users, Clock } from 'lucide-react';
 
 const stats = [
-  { icon: Clock, number: '25+', label: 'Let zkušeností' },
+  { icon: Clock, number: '1993', label: 'Od roku' },
   { icon: Users, number: '500+', label: 'Spokojených zákazníků' },
   { icon: Award, number: '100%', label: 'Spokojenost zákazníků' },
 ];

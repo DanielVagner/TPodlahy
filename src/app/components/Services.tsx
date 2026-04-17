@@ -1,4 +1,4 @@
-import { Layers, Building, Hammer, Sparkles } from 'lucide-react';
+import { Layers, Building, Hammer, Sparkles, RefreshCw, Ruler } from 'lucide-react';
 
 const services = [
   {
@@ -14,10 +14,22 @@ const services = [
     features: ['AC3-AC5 třídy', 'Různé dekory', 'Podlahové topení', 'Soundproofing'],
   },
   {
+    icon: RefreshCw,
+    title: 'Renovace parket',
+    description: 'Profesionální renovace dřevěných parket — broušení, tmelení, lakování i olejování.',
+    features: ['Broušení parket', 'Tmelení spár', 'Lakování & olejování', 'Oprava poškozených prken'],
+  },
+  {
     icon: Building,
     title: 'Renovace schodišť',
     description: 'Kompletní renovace a obložení schodišť vinylem nebo laminátovými materiály.',
     features: ['Dřevěné schody', 'Betonové schody', 'Protiskluzové hrany', 'Moderní design'],
+  },
+  {
+    icon: Ruler,
+    title: 'Zaměření a pokládka vinylových krytin',
+    description: 'Přesné zaměření prostoru a odborná pokládka vinylových podlahových krytin na míru.',
+    features: ['Zaměření zdarma', 'PVC role & dílce', 'Bezešvá pokládka', 'Komerční i bytové prostory'],
   },
   {
     icon: Sparkles,
@@ -47,7 +59,7 @@ export function Services() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {services.map((service, index) => {
             const Icon = service.icon;
             return (

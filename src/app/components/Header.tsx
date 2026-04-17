@@ -7,6 +7,7 @@ const navItems = [
   { id: 'video', label: 'Video' },
   { id: 'services', label: 'Služby' },
   { id: 'gallery', label: 'Galerie' },
+  { id: 'reviews', label: 'Recenze' },
   { id: 'about', label: 'O nás' },
   { id: 'contact', label: 'Kontakt' },
 ];

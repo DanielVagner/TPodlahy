@@ -3,7 +3,7 @@ import { ImageWithFallback } from './ImageWithFallback';
 import heroBg from '../../assets/imgs/WhatsApp Image 2026-04-17 at 20.41.49 (1).jpeg';
 
 const stats = [
-  { value: '25+', label: 'let zkušeností' },
+  { value: '1993', label: 'od roku' },
   { value: '500+', label: 'realizovaných projektů' },
   { value: '100%', label: 'spokojených zákazníků' },
 ];
