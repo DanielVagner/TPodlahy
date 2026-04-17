@@ -26,22 +26,20 @@ export function Header() {
 
   useEffect(() => {
     const sectionIds = navItems.map(item => item.id);
-    const observers: IntersectionObserver[] = [];
 
-    sectionIds.forEach(id => {
-      const el = document.getElementById(id);
-      if (!el) return;
-      const observer = new IntersectionObserver(
-        ([entry]) => {
-          if (entry.isIntersecting) setActiveSection(id);
-        },
-        { threshold: 0.4 }
-      );
-      observer.observe(el);
-      observers.push(observer);
-    });
+    const handleScroll = () => {
+      const scrollY = window.scrollY + 80;
+      let current = sectionIds[0];
+      for (const id of sectionIds) {
+        const el = document.getElementById(id);
+        if (el && el.offsetTop <= scrollY) current = id;
+      }
+      setActiveSection(current);
+    };
 
-    return () => observers.forEach(o => o.disconnect());
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const scrollToSection = (id: string) => {

@@ -1,4 +1,5 @@
 import { BrowserRouter, Routes, Route, useLocation } from 'react-router-dom';
+import { Analytics } from '@vercel/analytics/react';
 import { useEffect } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
@@ -51,6 +52,7 @@ export default function App() {
           <Route path="/" element={<MainLayout />} />
           <Route path="/galerie" element={<GalleryPage />} />
         </Routes>
+        <Analytics />
       </ThemeProvider>
     </BrowserRouter>
   );
