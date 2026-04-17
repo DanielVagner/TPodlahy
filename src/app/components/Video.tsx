@@ -1,86 +1,106 @@
 import { Play } from 'lucide-react';
 import { useState } from 'react';
 
+const videoFeatures = [
+  'Zaměření a dodávka podlahových krytin',
+  'Pokládka a renovace parket',
+  'Pokládka vinylových dílců a krytin',
+  'Laminátové podlahy a koberce',
+  'Renovace a pokládka schodišť',
+];
+
 export function Video() {
   const [isPlaying, setIsPlaying] = useState(false);
-
-  // Zde vlož své YouTube video ID nebo vlastní video URL
-  const youtubeVideoId = 'eOiIEyn-FQY'; // PŘÍKLAD - Změň na své video ID
-  
-  // Nebo použij vlastní video soubor:
-  // const videoUrl = '/videos/tpodlahy-showcase.mp4';
+  const youtubeVideoId = 'eOiIEyn-FQY';
 
   return (
-    <section id="video" className="py-20 bg-white dark:bg-stone-800 transition-colors">
+    <section id="video" className="py-24 bg-zinc-50 dark:bg-zinc-900 transition-colors">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 dark:text-white mb-4">
-            Podívejte se na naši práci
+
+        {/* Left-aligned header */}
+        <div className="max-w-xl mb-12">
+          <div className="inline-flex items-center gap-2 mb-4">
+            <span className="block w-6 h-px bg-orange-600 dark:bg-orange-500" />
+            <span className="text-orange-600 dark:text-orange-400 text-xs font-semibold tracking-widest uppercase">
+              Naše práce
+            </span>
+          </div>
+          <h2 className="text-4xl md:text-5xl font-bold text-zinc-900 dark:text-white leading-tight tracking-tight mb-4">
+            Výsledky mluví<br />
+            <span className="text-orange-600 dark:text-orange-400">za sebe.</span>
           </h2>
-          <p className="text-xl text-gray-600 dark:text-gray-300 max-w-3xl mx-auto">
-            Video ukázka našich realizací a profesionálního přístupu k pokládce podlah
+          <p className="text-zinc-500 dark:text-zinc-400 text-lg leading-relaxed">
+            Podívejte se na ukázku naší práce — od první návštěvy po finální pokládku.
           </p>
         </div>
 
-        <div className="max-w-5xl mx-auto">
-          <div className="relative aspect-video rounded-2xl overflow-hidden shadow-2xl bg-gray-900">
-            {!isPlaying ? (
-              // Thumbnail s play tlačítkem
-              <div 
-                className="absolute inset-0 cursor-pointer group"
-                onClick={() => setIsPlaying(true)}
-              >
-                {/* Thumbnail obrázek - použij vlastní nebo YouTube thumbnail */}
-                <img
-                  src={`https://img.youtube.com/vi/${youtubeVideoId}/maxresdefault.jpg`}
-                  alt="Video náhled"
-                  className="w-full h-full object-cover"
-                />
-                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/30 transition-colors flex items-center justify-center">
-                  <div className="bg-amber-700 hover:bg-amber-600 rounded-full p-6 transform group-hover:scale-110 transition-transform">
-                    <Play className="size-12 text-white fill-white" />
+        {/* Asymmetric grid: video 3/5 + side 2/5 */}
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
+
+          {/* Video player */}
+          <div className="lg:col-span-3">
+            <div className="relative aspect-video rounded-2xl overflow-hidden bg-zinc-950 shadow-2xl ring-1 ring-zinc-200 dark:ring-zinc-700/60">
+              {!isPlaying ? (
+                <div
+                  className="absolute inset-0 cursor-pointer group"
+                  onClick={() => setIsPlaying(true)}
+                >
+                  <img
+                    src={`https://img.youtube.com/vi/${youtubeVideoId}/maxresdefault.jpg`}
+                    alt="Video náhled"
+                    className="w-full h-full object-cover opacity-85 group-hover:opacity-95 transition-opacity duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/50 via-transparent to-transparent" />
+
+                  {/* Play button */}
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="relative">
+                      <div className="absolute inset-0 bg-white/15 rounded-full scale-[2] blur-2xl" />
+                      <div className="relative bg-white group-hover:bg-orange-50 transition-colors rounded-full w-16 h-16 flex items-center justify-center shadow-2xl group-hover:scale-105 duration-200">
+                        <Play className="size-6 text-orange-600 fill-orange-600 ml-0.5" />
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="absolute bottom-4 left-5">
+                    <span className="text-white/70 text-sm font-medium tracking-wide">Přehrát video</span>
                   </div>
                 </div>
-              </div>
-            ) : (
-              // YouTube iframe embed
-              <iframe
-                className="w-full h-full"
-                src={`https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&rel=0`}
-                title="TPodlahy Video"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-              />
-            )}
-
-            {/* Alternativa: Vlastní video soubor */}
-            {/* {isPlaying && (
-              <video
-                className="w-full h-full"
-                controls
-                autoPlay
-                src={videoUrl}
-              >
-                Váš prohlížeč nepodporuje video tag.
-              </video>
-            )} */}
-          </div>
-
-          {/* Video info */}
-          <div className="mt-8 grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div className="bg-amber-50 dark:bg-amber-900/20 rounded-lg p-6 text-center">
-              <div className="text-3xl font-bold text-amber-700 dark:text-amber-500 mb-2">200+</div>
-              <div className="text-gray-700 dark:text-gray-300">Spokojených zákazníků</div>
-            </div>
-            <div className="bg-amber-50 dark:bg-amber-900/20 rounded-lg p-6 text-center">
-              <div className="text-3xl font-bold text-amber-700 dark:text-amber-500 mb-2">15+</div>
-              <div className="text-gray-700 dark:text-gray-300">Let zkušeností</div>
-            </div>
-            <div className="bg-amber-50 dark:bg-amber-900/20 rounded-lg p-6 text-center">
-              <div className="text-3xl font-bold text-amber-700 dark:text-amber-500 mb-2">100%</div>
-              <div className="text-gray-700 dark:text-gray-300">Záruka spokojenosti</div>
+              ) : (
+                <iframe
+                  className="w-full h-full"
+                  src={`https://www.youtube.com/embed/${youtubeVideoId}?autoplay=1&rel=0`}
+                  title="TPodlahy — ukázka práce"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                  allowFullScreen
+                />
+              )}
             </div>
           </div>
+
+          {/* Side panel */}
+          <div className="lg:col-span-2 flex flex-col gap-6 lg:pt-2">
+            <p className="text-zinc-600 dark:text-zinc-400 text-base leading-relaxed">
+              Petr Tomášek — profesionální pokládka podlah. Podívejte se, co všechno pro vás dokážeme zajistit.
+            </p>
+
+            <div className="space-y-3">
+              {videoFeatures.map((item) => (
+                <div key={item} className="flex items-center gap-3 text-sm text-zinc-700 dark:text-zinc-300">
+                  <span className="w-1.5 h-1.5 rounded-full bg-orange-600 dark:bg-orange-500 flex-shrink-0" />
+                  {item}
+                </div>
+              ))}
+            </div>
+
+            <div className="p-5 rounded-xl bg-white dark:bg-zinc-800 border border-zinc-200 dark:border-zinc-700/60 shadow-sm">
+              <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed">
+                <span className="font-semibold text-zinc-900 dark:text-white">Měření zdarma.</span>{' '}
+                Přijedeme, zaměříme a připravíme cenovou nabídku — bez závazků a poplatků.
+              </p>
+            </div>
+          </div>
+
         </div>
       </div>
     </section>

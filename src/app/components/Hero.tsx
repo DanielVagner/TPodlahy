@@ -1,70 +1,107 @@
-import { ArrowRight, CheckCircle2 } from 'lucide-react';
-import { ImageWithFallback } from './figma/ImageWithFallback';
+import { ArrowRight, ChevronDown } from 'lucide-react';
+import { ImageWithFallback } from './ImageWithFallback';
+
+const stats = [
+  { value: '25+', label: 'let zkušeností' },
+  { value: '500+', label: 'realizovaných projektů' },
+  { value: '100%', label: 'spokojených zákazníků' },
+];
 
 export function Hero() {
   const scrollToContact = () => {
-    const element = document.getElementById('contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
+    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const scrollToGallery = () => {
+    document.getElementById('gallery')?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const scrollToNext = () => {
+    document.getElementById('video')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-20">
-      {/* Background Image */}
+    <section id="home" className="relative min-h-dvh flex flex-col justify-center pt-16 overflow-hidden">
+
+      {/* Background image */}
       <div className="absolute inset-0 z-0">
         <ImageWithFallback
-          src="https://images.unsplash.com/photo-1617044351564-edc92b339fd3?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjB2aW55bCUyMGZsb29yaW5nJTIwaW5zdGFsbGF0aW9ufGVufDF8fHx8MTc3MDU0MTc4OHww&ixlib=rb-4.1.0&q=80&w=1080&utm_source=figma&utm_medium=referral"
-          alt="Modern flooring installation"
+          src="https://images.pexels.com/photos/15066939/pexels-photo-15066939.jpeg?auto=compress&cs=tinysrgb&w=1920"
+          alt="Herringbone parketová podlaha"
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-gray-900/90 via-gray-900/70 to-gray-900/50 dark:from-black/95 dark:via-black/85 dark:to-black/75"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-zinc-950/92 via-zinc-950/70 to-zinc-950/20" />
+        <div className="absolute inset-0 bg-gradient-to-t from-zinc-950/50 via-transparent to-transparent" />
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        <div className="max-w-3xl">
-          <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6">
-            Profesionální pokládka podlah
-          </h2>
-          <p className="text-xl md:text-2xl text-gray-200 mb-8">
-            Specializujeme se na pokládku vinylových podlah, laminátů, renovace parket, pokládku pvc, koberce a renovaci schodišť. Kvalita a preciznost v každém detailu.
-          </p>
+      <div className="relative z-10 flex-1 flex items-center">
+        <div className="max-w-7xl mx-auto w-full px-4 sm:px-6 lg:px-8 py-20">
+          <div className="max-w-2xl">
 
-          <div className="flex flex-col sm:flex-row gap-4 mb-12">
-            <button 
-              onClick={scrollToContact}
-              className="bg-amber-700 hover:bg-amber-800 text-white px-8 py-4 rounded-lg flex items-center justify-center gap-2 transition-colors"
-            >
-              Nezávazná poptávka
-              <ArrowRight className="size-5" />
-            </button>
-            <button 
-              onClick={() => {
-                const element = document.getElementById('gallery');
-                if (element) element.scrollIntoView({ behavior: 'smooth' });
-              }}
-              className="bg-white/10 hover:bg-white/20 text-white border border-white/30 px-8 py-4 rounded-lg transition-colors backdrop-blur-sm"
-            >
-              Naše realizace
-            </button>
-          </div>
+            {/* Eyebrow */}
+            <div className="inline-flex items-center gap-2 mb-6">
+              <span className="block w-8 h-px bg-orange-500" />
+              <span className="text-orange-400 text-sm font-semibold tracking-widest uppercase">
+                Profesionální instalace podlah
+              </span>
+            </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            <div className="flex items-center gap-3 text-white">
-              <CheckCircle2 className="size-6 text-amber-400 flex-shrink-0" />
-              <span>15+ let zkušeností</span>
+            {/* Headline */}
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-white leading-[1.05] mb-6 tracking-tight">
+              Podlahy,<br />
+              které vydrží<br />
+              <span className="text-orange-500">celý život.</span>
+            </h1>
+
+            {/* Subtitle */}
+            <p className="text-lg md:text-xl text-zinc-300 mb-10 leading-relaxed max-w-xl">
+              Vinylové podlahy, laminát, parkety, PVC, koberce a schodiště.
+              Precizní řemeslo a kvalitní materiály pro každý domov.
+            </p>
+
+            {/* CTA buttons */}
+            <div className="flex flex-col sm:flex-row gap-3 mb-16">
+              <button
+                onClick={scrollToContact}
+                className="inline-flex items-center justify-center gap-2 bg-orange-600 hover:bg-orange-500 active:bg-orange-700 text-white font-semibold px-7 py-3.5 rounded-lg transition-colors"
+              >
+                Nezávazná poptávka
+                <ArrowRight className="size-4" />
+              </button>
+              <button
+                onClick={scrollToGallery}
+                className="inline-flex items-center justify-center gap-2 text-white font-medium px-7 py-3.5 rounded-lg border border-white/25 hover:border-white/50 hover:bg-white/10 transition-all backdrop-blur-sm"
+              >
+                Naše realizace
+              </button>
             </div>
-            <div className="flex items-center gap-3 text-white">
-              <CheckCircle2 className="size-6 text-amber-400 flex-shrink-0" />
-              <span>Záruka kvality</span>
-            </div>
-            <div className="flex items-center gap-3 text-white">
-              <CheckCircle2 className="size-6 text-amber-400 flex-shrink-0" />
-              <span>Rychlá realizace</span>
+
+            {/* Stats */}
+            <div className="flex flex-wrap gap-8">
+              {stats.map(({ value, label }) => (
+                <div key={label}>
+                  <div className="text-3xl font-bold text-white">{value}</div>
+                  <div className="text-sm text-zinc-400 mt-0.5">{label}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>
+      </div>
+
+      {/* Scroll indicator – absolute so it's always visible regardless of content height */}
+      <div className="absolute bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-10">
+        <button
+          onClick={scrollToNext}
+          className="flex flex-col items-center gap-1 text-zinc-400 hover:text-white transition-colors group"
+          aria-label="Scroll down"
+        >
+          <span className="text-xs font-medium tracking-wider uppercase opacity-70 group-hover:opacity-100 transition-opacity">
+            Více
+          </span>
+          <ChevronDown className="size-5 animate-bounce" />
+        </button>
       </div>
     </section>
   );

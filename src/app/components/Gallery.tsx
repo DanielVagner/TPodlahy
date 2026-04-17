@@ -1,4 +1,4 @@
-import { ImageWithFallback } from './figma/ImageWithFallback';
+import { ImageWithFallback } from './ImageWithFallback';
 import { useState, useEffect } from 'react';
 import { ChevronLeft, ChevronRight, X, Images } from 'lucide-react';
 
