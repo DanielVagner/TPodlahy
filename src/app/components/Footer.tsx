@@ -19,7 +19,7 @@ export function Footer() {
               </span>
             </div>
             <p className="text-zinc-500 text-sm leading-relaxed">
-              Profesionální pokládka podlah s tradicí od roku 2009. Kvalita a preciznost v každém detailu.
+              Profesionální pokládka podlah s tradicí od roku 1993. Kvalita a preciznost v každém detailu.
             </p>
           </div>
 
