@@ -1,4 +1,26 @@
-import { Layers, Building, Hammer, Sparkles, RefreshCw, Ruler } from 'lucide-react';
+import { Layers, Hammer, Sparkles, Ruler } from 'lucide-react';
+
+function ParquetIcon({ className }: { className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75" strokeLinecap="round" strokeLinejoin="round" className={className}>
+      <rect x="2" y="2" width="20" height="20" rx="1" />
+      <line x1="2" y1="9" x2="22" y2="9" />
+      <line x1="2" y1="16" x2="22" y2="16" />
+      <line x1="9" y1="2" x2="9" y2="9" />
+      <line x1="15" y1="9" x2="15" y2="16" />
+      <line x1="9" y1="16" x2="9" y2="22" />
+    </svg>
+  );
+}
+
+function StairsIcon({ className }: { className?: string }) {
+  return (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}>
+      <polyline points="4,20 4,15 9,15 9,10 14,10 14,5 20,5 20,20" />
+      <line x1="4" y1="20" x2="20" y2="20" />
+    </svg>
+  );
+}
 
 const services = [
   {
@@ -14,13 +36,13 @@ const services = [
     features: ['AC3-AC5 třídy', 'Různé dekory', 'Podlahové topení', 'Soundproofing'],
   },
   {
-    icon: RefreshCw,
+    icon: ParquetIcon,
     title: 'Renovace parket',
     description: 'Profesionální renovace dřevěných parket — broušení, tmelení, lakování i olejování.',
     features: ['Broušení parket', 'Tmelení spár', 'Lakování & olejování', 'Oprava poškozených prken'],
   },
   {
-    icon: Building,
+    icon: StairsIcon,
     title: 'Renovace schodišť',
     description: 'Kompletní renovace a obložení schodišť vinylem nebo laminátovými materiály.',
     features: ['Dřevěné schody', 'Betonové schody', 'Protiskluzové hrany', 'Moderní design'],

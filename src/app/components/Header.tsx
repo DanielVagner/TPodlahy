@@ -86,9 +86,6 @@ export function Header() {
                   }`}
                 >
                   {label}
-                  {activeSection === id && (
-                    <span className="absolute bottom-1 left-1/2 -translate-x-1/2 w-1 h-1 rounded-full bg-orange-600 dark:bg-orange-400" />
-                  )}
                 </button>
               ))}
             </nav>
